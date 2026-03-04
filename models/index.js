@@ -27,7 +27,7 @@ Post.BelongsTo(Category, {
 });
 
 Category.HasMany(Post, {
-    foreignKey: 'category_id'
+    foreignKey: 'category_id',
     as: 'posts'
 });
 
