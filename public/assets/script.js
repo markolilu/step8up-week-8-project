@@ -103,6 +103,7 @@ function fetchPosts() {
     });
 }
 
-function updatePost(postId)
+function updatePost(postId) {
+    
 
 function deletePost(postId)
