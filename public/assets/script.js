@@ -94,7 +94,9 @@ function fetchPosts() {
             dispatchEvent.innerHTML = `<h3>${post.title}</h3>
                                       <p>${post.content}</p>
                                       <p>Category: ${post.category}</p>
-                                      <p>Posted by: ${post.postedBy}</p>`;
+                                      <p>Posted by: ${post.postedBy}</p>
+                                      <button onclick="updatePost('${post._id}')">Edit</button>
+                                      <button onclick="deletePost('${post._id}')">Delete</button>`;
             postsContainer.appendChild(postElement);
         });
     })
@@ -104,6 +106,48 @@ function fetchPosts() {
 }
 
 function updatePost(postId) {
-    
+    const newTitle = prompt("Enter new title:");
+    const newContent = prompt("Enter new content:");
+    const newCategory = prompt("Enter new category:");
 
-function deletePost(postId)
+    const updatedData = {};
+
+    if (newTitle !== null) updatedData.title = newTitle;
+    if (newContent !== null) updatedData.content = newContent;
+    if (newCategory !== null) updatedData.category = newCategory;
+
+    fetch(`http://localhost:3000/api/posts/${postId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(updatedData)
+    })
+    .then((response) => response.json())
+    .then(data => {
+        console.log("Post updated:", data);
+        fetchPosts();
+    })
+    .catch(error => {
+        console.error("Error updating post:", error);
+    });
+}
+
+function deletePost(postId) {
+    fetch(`http://localhost:3000/api/posts/${postId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    })
+    .then((response) => response.json())
+    .then(data => {
+        console.log("Post deleted:", data);
+        fetchPosts();
+    })
+    .catch(error => {
+        console.error("Error deleting post:", error);
+    });
+}
