@@ -12,21 +12,21 @@ const Post = require('./post');
 const Category = require('./category');
 const User = require('./user');
 
-Post.BelongsTo(User, {
+Post.belongsTo(User, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
-User.HasMany(Post, {
+User.hasMany(Post, {
     foreignKey: 'user_id'
 });
 
-Post.BelongsTo(Category, {
+Post.belongsTo(Category, {
     foreignKey: 'category_id',
     as: 'category',
 });
 
-Category.HasMany(Post, {
+Category.hasMany(Post, {
     foreignKey: 'category_id',
     as: 'posts'
 });

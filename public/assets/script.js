@@ -54,18 +54,25 @@ function logout() {
     document.getElementById('auth-container').classList.remove('hidden');
 }
 
+const categoryMap = {
+    1: 'Technology',
+    2: 'Lifestyle',
+    3: 'Travel',
+    4: 'Food',
+    5: 'Education'
+};
 
 function createPost() {
     const title = document.getElementById('postTitle').value;
     const content = document.getElementById('postContent').value;
-    const category = document.getElementById('postCategory').value;
+    const categoryId = document.getElementById('postCategory').value;
     fetch("http://localhost:3000/api/posts", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
         },
-        body: JSON.stringify({ title, content, category, postedBy: "user" })
+        body: JSON.stringify({ title, content, category_id: categoryId, postedBy: "user" })
     })
     .then((response) => response.json())
     .then(data => {
@@ -91,12 +98,12 @@ function fetchPosts() {
         postsContainer.innerHTML = '';
         data.forEach(post => {
             const postElement = document.createElement('div');
-            dispatchEvent.innerHTML = `<h3>${post.title}</h3>
+            postElement.innerHTML = `<h3>${post.title}</h3>
                                       <p>${post.content}</p>
-                                      <p>Category: ${post.category}</p>
-                                      <p>Posted by: ${post.postedBy}</p>
-                                      <button onclick="updatePost('${post._id}')">Edit</button>
-                                      <button onclick="deletePost('${post._id}')">Delete</button>`;
+                                      <p>Category: ${categoryMap[post.category_id] || 'Uncategorised'}</p>
+                                      <p>Posted by: ${post.user ? post.user.username : 'Unknown'}</p>
+                                      <button onclick="updatePost('${post.id}')">Edit</button>
+                                      <button onclick="deletePost('${post.id}')">Delete</button>`;
             postsContainer.appendChild(postElement);
         });
     })
@@ -108,13 +115,13 @@ function fetchPosts() {
 function updatePost(postId) {
     const newTitle = prompt("Enter new title:");
     const newContent = prompt("Enter new content:");
-    const newCategory = prompt("Enter new category:");
+    const newCategoryId = prompt("Enter new category ID:");
 
     const updatedData = {};
 
     if (newTitle !== null) updatedData.title = newTitle;
     if (newContent !== null) updatedData.content = newContent;
-    if (newCategory !== null) updatedData.category = newCategory;
+    if (newCategoryId !== null) updatedData.category_id = newCategoryId;
 
     fetch(`http://localhost:3000/api/posts/${postId}`, {
         method: "PUT",

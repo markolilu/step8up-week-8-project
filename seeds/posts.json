@@ -1,0 +1,162 @@
+[
+{
+"title": "Getting Started with Node.js",
+"content": "Node.js allows JavaScript to run on the server and is commonly used for backend development.",
+"postedBy": "Alice",
+"user_id": 1,
+"category_id": 1,
+"createdOn": "2026-01-10T10:00:00.000Z"
+},
+{
+"title": "Understanding Express Middleware",
+"content": "Middleware functions execute during the lifecycle of a request to the Express server.",
+"postedBy": "Bob",
+"user_id": 2,
+"category_id": 1,
+"createdOn": "2026-01-11T11:00:00.000Z"
+},
+{
+"title": "Why Use Sequelize ORM",
+"content": "Sequelize simplifies database interactions by mapping tables to JavaScript objects.",
+"postedBy": "Charlie",
+"user_id": 3,
+"category_id": 2,
+"createdOn": "2026-01-12T12:00:00.000Z"
+},
+{
+"title": "Async Await in JavaScript",
+"content": "Async and await make asynchronous code easier to read and maintain.",
+"postedBy": "Alice",
+"user_id": 1,
+"category_id": 2,
+"createdOn": "2026-01-13T09:30:00.000Z"
+},
+{
+"title": "JavaScript Array Methods",
+"content": "Methods like map, filter, and reduce help process arrays efficiently.",
+"postedBy": "David",
+"user_id": 4,
+"category_id": 3,
+"createdOn": "2026-01-14T14:10:00.000Z"
+},
+{
+"title": "Understanding REST APIs",
+"content": "REST APIs allow communication between client and server using HTTP methods.",
+"postedBy": "Eve",
+"user_id": 5,
+"category_id": 1,
+"createdOn": "2026-01-15T15:00:00.000Z"
+},
+{
+"title": "How Authentication Works",
+"content": "Authentication verifies the identity of users before allowing access to resources.",
+"postedBy": "Frank",
+"user_id": 6,
+"category_id": 3,
+"createdOn": "2026-01-16T08:45:00.000Z"
+},
+{
+"title": "Introduction to MVC Architecture",
+"content": "MVC separates application logic into models, views, and controllers.",
+"postedBy": "Grace",
+"user_id": 7,
+"category_id": 2,
+"createdOn": "2026-01-17T16:20:00.000Z"
+},
+{
+"title": "Debugging Node Applications",
+"content": "Tools like console logs and debuggers help identify issues in code.",
+"postedBy": "Henry",
+"user_id": 8,
+"category_id": 1,
+"createdOn": "2026-01-18T12:30:00.000Z"
+},
+{
+"title": "Introduction to SQL",
+"content": "SQL is used to manage and query relational databases.",
+"postedBy": "Ivy",
+"user_id": 9,
+"category_id": 3,
+"createdOn": "2026-01-19T10:10:00.000Z"
+},
+{
+"title": "Writing Clean Code",
+"content": "Clean code improves readability, maintainability, and collaboration.",
+"postedBy": "Jack",
+"user_id": 10,
+"category_id": 4,
+"createdOn": "2026-01-20T13:00:00.000Z"
+},
+{
+"title": "Version Control with Git",
+"content": "Git tracks changes in code and helps teams collaborate efficiently.",
+"postedBy": "Alice",
+"user_id": 1,
+"category_id": 4,
+"createdOn": "2026-01-21T17:40:00.000Z"
+},
+{
+"title": "Handling Errors in Express",
+"content": "Centralized error handling improves maintainability and debugging.",
+"postedBy": "Bob",
+"user_id": 2,
+"category_id": 1,
+"createdOn": "2026-01-22T11:15:00.000Z"
+},
+{
+"title": "Understanding Promises",
+"content": "Promises represent the eventual completion or failure of asynchronous operations.",
+"postedBy": "Charlie",
+"user_id": 3,
+"category_id": 2,
+"createdOn": "2026-01-23T14:25:00.000Z"
+},
+{
+"title": "Setting Up a Node Project",
+"content": "Initialize projects using npm and manage dependencies easily.",
+"postedBy": "David",
+"user_id": 4,
+"category_id": 1,
+"createdOn": "2026-01-24T09:50:00.000Z"
+},
+{
+"title": "Environment Variables Explained",
+"content": "Environment variables help manage configuration securely.",
+"postedBy": "Eve",
+"user_id": 5,
+"category_id": 3,
+"createdOn": "2026-01-25T15:35:00.000Z"
+},
+{
+"title": "Introduction to APIs",
+"content": "APIs enable communication between software systems.",
+"postedBy": "Frank",
+"user_id": 6,
+"category_id": 4,
+"createdOn": "2026-01-26T12:45:00.000Z"
+},
+{
+"title": "Writing Modular JavaScript",
+"content": "Breaking code into modules improves maintainability and scalability.",
+"postedBy": "Grace",
+"user_id": 7,
+"category_id": 2,
+"createdOn": "2026-01-27T18:10:00.000Z"
+},
+{
+"title": "Database Relationships Explained",
+"content": "Relationships like one-to-many and many-to-many structure relational data.",
+"postedBy": "Henry",
+"user_id": 8,
+"category_id": 3,
+"createdOn": "2026-01-28T10:05:00.000Z"
+},
+{
+"title": "Deploying a Node App",
+"content": "Node applications can be deployed to cloud platforms for public access.",
+"postedBy": "Ivy",
+"user_id": 9,
+"category_id": 4,
+"createdOn": "2026-01-29T16:55:00.000Z"
+}
+]

@@ -33,12 +33,12 @@
             <textarea placeholder="Content" id="postContent"></textarea>
             <h3>Category</h3>
             <label for="category">Choose a category:</label>
-            <select name="category" id="postCategory">
-                <option value="technology">Technology</option>
-                <option value="lifestyle">Lifestyle</option>
-                <option value="travel">Travel</option>
-                <option value="food">Food</option>
-                <option value="education">Education</option>
+            <select name="category_id" id="postCategory">
+                <option value="1">Technology</option>
+                <option value="2">Lifestyle</option>
+                <option value="3">Travel</option>
+                <option value="4">Food</option>
+                <option value="5">Education</option>
             </select>
             <button id="create-post-button" onclick="createPost()">Create Post</button>
 
@@ -47,11 +47,11 @@
             <h3>This is where posts will be Searched</h3>
             <select name="filter-category" id="filterCategory" onchange="filterPostsByCategory()">
                 <option value="">All Categories</option>
-                <option value="technology">Technology</option>
-                <option value="lifestyle">Lifestyle</option>
-                <option value="travel">Travel</option>
-                <option value="food">Food</option>
-                <option value="education">Education</option>
+                <option value="1">Technology</option>
+                <option value="2">Lifestyle</option>
+                <option value="3">Travel</option>
+                <option value="4">Food</option>
+                <option value="5">Education</option>
             </select>
             <button id="loadPostsButton" onclick="loadPosts()">Load Posts</button>
             <h3>add functionality to allow posts to be filtered by category</h3>

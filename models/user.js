@@ -30,7 +30,10 @@ User.init(
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                len: [8]
+            }
         },
         createdOn: {
             type: DataTypes.DATE,
@@ -45,7 +48,9 @@ User.init(
                 return newUserData;
             },
             beforeUpdate: async (updatedUserData) => { 
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                if (updatedUserData.password) {
+                    updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                }
                 return updatedUserData;
             },
         },
