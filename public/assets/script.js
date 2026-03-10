@@ -4,7 +4,7 @@ function registerUser() {
     const username = document.getElementById('registerUsername').value;
     const email = document.getElementById('registerEmail').value;
     const password = document.getElementById('registerPassword').value;
-    fetch("http://localhost:3306/api/users", {
+    fetch("http://localhost:3000/api/users", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ username, email, password })
@@ -21,7 +21,7 @@ function registerUser() {
 function login() {
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
-    fetch("http://localhost:3306/api/users/login", {
+    fetch("http://localhost:3000/api/users/login", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ email, password })
@@ -41,7 +41,7 @@ function login() {
 }
 
 function logout() {
-    fetch("http://localhost:3306/api/users/logout", {
+    fetch("http://localhost:3000/api/users/logout", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -66,7 +66,7 @@ function createPost() {
     const title = document.getElementById('postTitle').value;
     const content = document.getElementById('postContent').value;
     const categoryId = document.getElementById('postCategory').value;
-    fetch("http://localhost:3306/api/posts", {
+    fetch("http://localhost:3000/api/posts", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -84,7 +84,7 @@ function createPost() {
 }
 
 function fetchPosts() {
-    fetch("http://localhost:3306/api/posts", {
+    fetch("http://localhost:3000/api/posts", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -123,7 +123,7 @@ function updatePost(postId) {
     if (newContent !== null) updatedData.content = newContent;
     if (newCategoryId !== null) updatedData.category_id = newCategoryId;
 
-    fetch(`http://localhost:3306/api/posts/${postId}`, {
+    fetch(`http://localhost:3000/api/posts/${postId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -142,7 +142,7 @@ function updatePost(postId) {
 }
 
 function deletePost(postId) {
-    fetch(`http://localhost:3306/api/posts/${postId}`, {
+    fetch(`http://localhost:3000/api/posts/${postId}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
