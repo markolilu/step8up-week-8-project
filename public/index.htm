@@ -20,12 +20,13 @@
             <input type="password" placeholder="Password" id="loginPassword">
             <button id="loginButton" onclick="login()">Login</button>
 
-        <h2>Logout</h2>
-            <button id="logout-button" onclick="logout()">Logout</button>
+        
     </div>
 
     <div id="app-container" class="container hidden">
-      
+        <h2>Logout</h2>
+            <button id="logout-button" onclick="logout()">Logout</button>
+
         <h2>Create a Post</h2>
             <h3>Title</h3>
             <input type="text" placeholder="Title" id="postTitle">
@@ -55,11 +56,12 @@
             </select>
             <button id="loadPostsButton" onclick="fetchPosts()">Load Posts</button>
             <h3>add functionality to allow posts to be filtered by category</h3>
-    </div>
+    
 
-    <div id="postsContainer" class="container hidden">
-        <h2>Posts</h2>
-        <div id="posts-list"></div>
+        <div id="postsContainer">
+            <h2>Posts</h2>
+            <div id="posts-list"></div>
+        </div>
     </div>
 
     <script src="./assets/script.js"></script>

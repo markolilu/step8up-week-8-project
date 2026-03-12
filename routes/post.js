@@ -65,11 +65,22 @@ app.get('/:id', async (req, res) => {
 
 app.put('/:id', async (req, res) => {
     try {
-        const {title, content, createdOn, postedBy, category_id, user_id} = req.body;
-        const postData = await Post.update(
-            {title, content, createdOn, postedBy, category_id, user_id},
-            {where: {id: req.params.id}}
+        const updatedData = await Post.update(req.body,
+            { where: {id: req.params.id}, returning: true }
         );
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Category,
+                    as: 'category',
+                    attributes: ['category_name']
+                },
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        });
         res.json(postData);
     } catch (err) {
         res.status(500).json(err);

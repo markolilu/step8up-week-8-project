@@ -2,6 +2,17 @@ const router = require('express').Router();
 const { User } = require('../models');
 const { signToken, authMiddleware} = require('../utils/auth');
 
+// get current user
+router.get("/me", authMiddleware, async (req, res) => {
+  try {
+    const user = await User.getOne(req.user.id);
+    if (!user) return res.status(401).json({ message: "Token expired" });
+    return res.status(200).json({ user });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // Create a new user
 router.post('/', async (req, res) => {
   try {

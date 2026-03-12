@@ -28,8 +28,11 @@ function login() {
     })
     .then((response) => response.json())
     .then(data => {
+        console.log("log in response:", data)
+
         if (data.token) {
             localStorage.setItem('authToken', data.token);
+            localStorage.setItem(`user`, JSON.stringify(data.user));
             token = data.token;
             alert("User Logged In successfully");
             
@@ -55,6 +58,7 @@ function logout() {
     token = null;
     document.getElementById('app-container').classList.add('hidden');
     document.getElementById('auth-container').classList.remove('hidden');
+    alert("User Logged Out successfully");
 }
 
 const categoryMap = {
@@ -69,17 +73,21 @@ function createPost() {
     const title = document.getElementById('postTitle').value;
     const content = document.getElementById('postContent').value;
     const categoryId = document.getElementById('postCategory').value;
+
+    const user = JSON.parse(localStorage.getItem(`user`));
+
     fetch("http://localhost:3000/api/posts", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
         },
-        body: JSON.stringify({ title, content, category_id: categoryId, postedBy: "user" })
+        body: JSON.stringify({ title, content, category_id: categoryId, postedBy: user.username, user_id: user.id })
     })
     .then((response) => response.json())
     .then(data => {
         console.log("Post created:", data);
+        fetchPosts();
     })
     .catch(error => {
         console.error("Error creating post:", error);
@@ -129,13 +137,23 @@ function fetchPosts() {
 function updatePost(postId) {
     const newTitle = prompt("Enter new title:");
     const newContent = prompt("Enter new content:");
-    const newCategoryId = prompt("Enter new category ID:");
+
+    const categoryOptions = Object.entries(categoryMap).map(([id, name]) => `${id}: ${name}`).join("\n");
+
+    const newCategoryId = prompt(`Enter new category ID:\n${categoryOptions}`);
 
     const updatedData = {};
 
-    if (newTitle !== null) updatedData.title = newTitle;
-    if (newContent !== null) updatedData.content = newContent;
-    if (newCategoryId !== null) updatedData.category_id = newCategoryId;
+    if (newTitle && newTitle.trim() !== "") updatedData.title = newTitle.trim();
+    if (newContent && newContent.trim() !== "") updatedData.content = newContent.trim();
+    if (newCategoryId && categoryMap[newCategoryId]) {
+        updatedData.category_id = parseInt(newCategoryId);
+    };
+
+    if (Object.keys(updatedData).length === 0) {
+        alert("no changes provided");
+        return;
+    }
 
     fetch(`http://localhost:3000/api/posts/${postId}`, {
         method: "PUT",
