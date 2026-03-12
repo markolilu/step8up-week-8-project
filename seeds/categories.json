@@ -1,0 +1,22 @@
+[
+{
+"id": 1,
+"category_name": "Technology"
+},
+{
+"id": 2,
+"category_name": "Lifestyle"
+},
+{
+"id": 3,
+"category_name": "Travel"
+},
+{
+"id": 4,
+"category_name": "Food"
+},
+{
+"id": 5,
+"category_name": "Education"
+}
+]

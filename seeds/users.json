@@ -1,0 +1,62 @@
+[
+{
+"username": "Alice",
+"email": "[alice@example.com](mailto:alice@example.com)",
+"password": "password123",
+"created_on": "2026-01-01 09:00:00"
+},
+{
+"username": "Bob",
+"email": "[bob@example.com](mailto:bob@example.com)",
+"password": "password123",
+"created_on": "2026-01-02 10:15:00"
+},
+{
+"username": "Charlie",
+"email": "[charlie@example.com](mailto:charlie@example.com)",
+"password": "password123",
+"created_on": "2026-01-03 11:30:00"
+},
+{
+"username": "David",
+"email": "[david@example.com](mailto:david@example.com)",
+"password": "password123",
+"created_on": "2026-01-04 12:45:00"
+},
+{
+"username": "Eve",
+"email": "[eve@example.com](mailto:eve@example.com)",
+"password": "password123",
+"created_on": "2026-01-05 14:00:00"
+},
+{
+"username": "Frank",
+"email": "[frank@example.com](mailto:frank@example.com)",
+"password": "password123",
+"created_on": "2026-01-06 15:10:00"
+},
+{
+"username": "Grace",
+"email": "[grace@example.com](mailto:grace@example.com)",
+"password": "password123",
+"created_on": "2026-01-07 16:20:00"
+},
+{
+"username": "Henry",
+"email": "[henry@example.com](mailto:henry@example.com)",
+"password": "password123",
+"created_on": "2026-01-08 17:30:00"
+},
+{
+"username": "Ivy",
+"email": "[ivy@example.com](mailto:ivy@example.com)",
+"password": "password123",
+"created_on": "2026-01-09 18:40:00"
+},
+{
+"username": "Jack",
+"email": "[jack@example.com](mailto:jack@example.com)",
+"password": "password123",
+"created_on": "2026-01-10 19:50:00"
+}
+]

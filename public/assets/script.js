@@ -31,6 +31,9 @@ function login() {
         if (data.token) {
             localStorage.setItem('authToken', data.token);
             token = data.token;
+            alert("User Logged In successfully");
+            
+
             document.getElementById('auth-container').classList.add('hidden');
             document.getElementById('app-container').classList.remove('hidden');
         }
@@ -84,7 +87,18 @@ function createPost() {
 }
 
 function fetchPosts() {
-    fetch("http://localhost:3000/api/posts", {
+    const category = document.getElementById("filterCategory").value;
+
+    console.log("Selected category:", category);
+
+
+    let url = "http://localhost:3000/api/posts";
+
+    if (category) {
+        url += `?category=${category}`;
+    }
+
+    fetch(url, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
